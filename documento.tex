@@ -1,0 +1,173 @@
+ \section{Introdução}
+
+  \subsection{Objetivo}
+  Este documento tem por objetivo a especificação dos requisitos levantados junto a JCI de Londrina. Servindo também como instrumento para os desenvolvedores e membros 
+  da JCI para elucidar questões referentes aos requisitos levantados.
+
+  \subsection{Escopo}
+    
+   O projeto do sistema da JCI de Londrina visa o desenvolvimento de um sistema para cadastro de voluntários e entidades, entidades essas que atuam em várias áreas como creches, 
+   cuidados a pessoas da melhor idade, cuidado de deficiêntes, e os voluntário que querem ajudar tais entidades.\\
+   O sistema tendo esses dados irá cruzar as informações entre voluntários e entidades e mostrar-la em uma área do sistema que será de acesso exclusido de membros da JCI
+   da JCI, após o cadastro de cada novo voluntário ou entidade será mostrado ao membro da JCI os cruzamentos entre aquele novo cadastro e os dados já existentes no 
+   banco de dados do sistema.
+
+   O sistema permitirá aos membros da JCI criarem um histórico de voluntariado para cada voluntário ou entidade.\\
+   Os dados cadastrados no sistema por voluntários ou entidades estarão disponíveis apenas para membros da JCI, nenhum voluntário ou entidade poderá ter acesso a nenhuma 
+   informação que não seja o seu próprio cadastro.
+
+  \subsection{Visão Geral}
+  
+  No capítulo 2 será feita uma descrição geral dos usuário do sistema. No capítulo 3 serão descritos os requisitos funcionais que haverá no sistema. No 
+  capítulo 4 será descrito os requisitos de interface. No capítulo 5 é descrito os requisitos de qualidade e as restrições do sistema serão descritas no capítulo 6.
+
+  \section{Usuários}
+  Os usuários do sistema serão aqueles que irão interagir de alguma forma com o sistema, sejam os voluntários ou entidades. Também está definido como usuário os Membros da JCI que acesso como administrador do sistema.
+
+   \subsection{Voluntário Pessoa Física}
+   O voluntário pessoa física se cadastrará voluntáriamente no sistema, sendo identificado pelo seu CPF.
+   \subsection{Voluntário Pessoa Jurídica}
+   O voluntário pessoa jurídica se cadastrará voluntáriamente no sistema, sendo identificado pelo seu CNPJ.
+   \subsection{Entidade}
+   A entidade se cadastrará voluntáriamente no sistema, sendo indentificada pelo seu CNPJ.
+   \subsection{Membro JCI}
+   O membro JCI terá acesso a todos os dados cadastrados, sendo identificado por um login e senha, sendo que, não haverá hierarquia entre tais usuários. 
+
+  \section{Requisitos Funcionais}
+    \subsection{Cadastro de Voluntário}
+      \subsubsection{Pessoa Física}
+      O cadastro de pessoa física no sistema será feita pelo voluntário e que deverá obrigatóriamente ter um CPF para identifica-lo, esse CPF será validado pelo sistema, seu cadastro conterá:
+        \begin{itemize}
+        \item Nome
+        \item CPF
+        \item Email
+        \item Telefone
+        \item Como ficou sabendo da JCI/Projeto Canal de Voluntários?
+        \item Tem experiência com voluntáriado?
+        \item "Público":
+          \begin{itemize}
+          \item Crianças
+          \item Adultos
+          \item Melhor idade
+          \item Adolescentes
+          \item Portadores de necessidades especiais
+          \item Outro (campo aberto)
+          \end{itemize}
+        \item Áreas de atuação:
+          \begin{itemize}
+            \item Jurídica
+            \item Administrativa
+            \item Recreação
+            \item Saúde
+            \item Educação
+            \item Manutenção
+            \item Doação
+            \item Outro (campo aberto)
+          \end{itemize}
+        \item Disponibilidade de tempo
+        \item Outras informações (campo aberto)
+        \end{itemize}
+
+      \subsubsection{Pessoa Jurídica}
+      O cadastro de pessoa jurídica no sistema será feita pelo voluntário e que deverá obrigatóriamente ter um CNPJ para identifica-lo, um membro JCI irá verificar 
+      a validade deste CNPJ junto ao cadastro nacional, seu cadastro conterá:
+        \begin{itemize}
+          \item Razão Social
+          \item CNPJ
+          \item Inscrição Estadual (não obrigatório)
+          \item Email
+          \item Telefone
+          \item Endereço
+          \item Área de atuação da empresa
+          \item Contato (nome do responsável)
+          \item Outras informações (campo aberto)
+        \end{itemize}
+
+    \subsection{Cadastro de Entidade}
+    O cadastro de entidade no sistema será feito pela entidade e deverá obrigatóriamente ter um CNPJ para identifica-la, esse cadastro ficará inativo no sistema até 
+    que um membro JCI verifique a veracidade das informações da entidade e aprove ou desaprove o cadastro, seu cadastro conterá:
+    \begin{itemize}
+        \item Nome
+        \item CNPJ
+        \item Endereço
+        \item Nome do responsável
+        \item Email
+        \item Telefone
+        \item Site
+        \item Data de fundação
+        \item Público atendido:
+          \begin{itemize}
+          \item Crianças
+          \item Adultos
+          \item Melhor idade
+          \item Adolescentes
+          \item Portadores de necessidades especiais
+          \item Outro (campo aberto)
+          \end{itemize}
+        \item Número de beneficiados
+        \item Áreas de atuação: 
+          \begin{itemize}
+            \item Jurídica
+            \item Administrativa
+            \item Recreação
+            \item Saúde
+            \item Educação
+            \item Manutenção
+            \item Doação
+            \item Outro (campo aberto)
+          \end{itemize}
+        \item Recebe apoio? (sim/não)
+          \begin{itemize}
+            \item Municipal
+            \item Estadual
+            \item Federal
+            \item Particular
+          \end{itemize}
+        \item Horários de atendimento:
+      \end{itemize}
+
+    \subsection{Modificação do Cadastro pelo Voluntário ou Entidade}
+    O sistema permitirá ao voluntário ou entidade cadastrado alterar seus dados ou excluir seu cadastro do sitema da JCI, essa modificação será feita pelo 
+    voluntário ou entidade após se identificar com CPF ou CNPJ, assim tendo acesso aos dados do seu cadastro.
+
+    \subsection{Cruzamento de Dados}
+    O cruzamento de dados será feito de forma automática. E somente os membros JCI terão acesso a essa funcionalidade.
+
+    Toda vez que um novo voluntário ou entidade é adicionada, no caso de ser uma entidade o sistema fará um cruzamento entre as necessidades da entidade 
+    e os voluntários já cadastrados e retornando aqueles que combinarem, no caso voluntário o sistema irá cruzar sua área de atuação e público com as entidades 
+    existentes no sistema e retornando aquelas que combinarem.
+
+    \subsubsection{Dados para teste}
+    Para teste do sistema a JCI poderá passar cadastros válidos para serem utilizados como caso de teste.
+
+    \subsection{Inclusão de Histórico}
+    O sistema permitirá a inclusão de histórico de voluntáriado em cadastros existentes, sendo possível ser adicionado apenas por membros JCI, que poderão entrar 
+    no cadastro do voluntário ou entidade e lá adicionar informações em um campo aberto para texto.
+
+    \subsection{Busca Personalisada}
+    O sistema permitirá realizar buscas personalizadas entre os cadastros existentes, seja para encontrar um voluntário ou entidade para incluir histórico ou para 
+    localizar todos os voluntários com determinados interesses ou entidades com determinadas necessidades. Apenas membros JCI terão acesso a essa funcionalidade. 
+
+    \subsection{Modificação de Cadastros}
+    O sistema permitirá que um Membro JCI modifique qualquer informação cadastrada por voluntário ou entidade.
+
+  \section{Requisitos de Interface}
+  O sistema será desenvolvido como um sistema WEB, com uma interface clara e objetiva, será priorizado na interface manter a clareza das informações dispostas na 
+  interface, fazendo com que o usuário não tenha que perder tempo procurando ou advinhando o que a interface está mostrando. O uso do sistema deverá ser o mais 
+  intuitivo possível para facilitar seu uso.
+  
+  \section{Requisitos de Qualidade}
+  A qualidade do sistema será prioridade no que diz respeito funciolidade.
+
+  A velocidade de resposta em buscas ou cruzamento de dados deverá ser de no máximo 5 segundos. O tempo de resposta que não incluam o banco de dados deverá ser de 
+  no máximo dois segundos, sempre levando em consideração a velocidade de conexão do usuário.
+
+  O sistema deverá rodar nos principais navegadores que estão no mercado (Google Chrome, Mozilla Firefox, Safari, Internet Explorer), priorizando as versões 
+  mais atuais de cada navegador.
+
+  Todos os requisitos citados na sessão de requisitos funcionais são obrigatórios no sistema.
+
+  \section{Restrições}
+  O sistema terá restrições no que diz respeito a navegadores de versões descontinuadas, como por exemplo: \textit{Internet Explorer 6}.
+
+  Para implantação do sistema deve-se ter um dominio válido e um servidor para ser alocado, essas necessidades do sistema serão de responsabilidade da JCI Londrina em contrata-los e compra-los se necessário, a \textit{G8k} não se envolverá nesse processo. 
